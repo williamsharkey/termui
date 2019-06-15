@@ -2,30 +2,28 @@
 // Use of this source code is governed by a MIT license that can
 // be found in the LICENSE file.
 
-package widgets
+package termui
 
 import (
 	"image"
-
-	. "github.com/gizak/termui/v3"
 )
 
-type Paragraph struct {
+type WParagraph struct {
 	Block
 	Text      string
 	TextStyle Style
 	WrapText  bool
 }
 
-func NewParagraph() *Paragraph {
-	return &Paragraph{
+func NewWParagraph() *WParagraph {
+	return &WParagraph{
 		Block:     *NewBlock(),
 		TextStyle: Theme.Paragraph.Text,
 		WrapText:  true,
 	}
 }
 
-func (self *Paragraph) Draw(buf *Buffer) {
+func (self *WParagraph) Draw(buf *Buffer) {
 	self.Block.Draw(buf)
 
 	cells := ParseStyles(self.Text, self.TextStyle)

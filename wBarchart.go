@@ -2,18 +2,16 @@
 // Use of this source code is governed by a MIT license that can
 // be found in the LICENSE file.
 
-package widgets
+package termui
 
 import (
 	"fmt"
 	"image"
 
 	rw "github.com/mattn/go-runewidth"
-
-	. "github.com/gizak/termui/v3"
 )
 
-type BarChart struct {
+type WBarChart struct {
 	Block
 	BarColors    []Color
 	LabelStyles  []Style
@@ -26,8 +24,8 @@ type BarChart struct {
 	MaxVal       float64
 }
 
-func NewBarChart() *BarChart {
-	return &BarChart{
+func NewWBarChart() *WBarChart {
+	return &WBarChart{
 		Block:        *NewBlock(),
 		BarColors:    Theme.BarChart.Bars,
 		NumStyles:    Theme.BarChart.Nums,
@@ -38,7 +36,7 @@ func NewBarChart() *BarChart {
 	}
 }
 
-func (self *BarChart) Draw(buf *Buffer) {
+func (self *WBarChart) Draw(buf *Buffer) {
 	self.Block.Draw(buf)
 
 	maxVal := self.MaxVal
